@@ -1,0 +1,11 @@
+.nyc_output
+.venv
+coverage
+debug
+node_modules
+payloads
+.env
+site/
+lambda.zip
+auto-me-bot.zip
+unit-tests-result.json
