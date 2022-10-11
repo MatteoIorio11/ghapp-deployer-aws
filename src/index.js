@@ -1,3 +1,7 @@
+/**
+ * @param {import('probot').Probot} app
+ */
+
 module.exports = (app) => {
     app.on("issues.opened", async (context) => {
       // `context` extracts information from the event, which can be passed to
