@@ -3,7 +3,7 @@ const {
   createProbot,
 } = require("@probot/adapter-aws-lambda-serverless");
 
-const appFn = require("./");
+const appFn = require("./app");
 
 module.exports.webhooks = createLambdaFunction(appFn, {
   probot: createProbot(),
