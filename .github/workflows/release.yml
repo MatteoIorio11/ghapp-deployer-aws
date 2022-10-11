@@ -54,7 +54,7 @@ jobs:
         run: npm ci --production
 
       - name: Create lambda archive
-        run: zip -j deploy.zip ./dist/*
+        run: zip -r auto-me-bot.zip dist/
 
       - name: Get function state
         id: function_state
