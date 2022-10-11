@@ -75,10 +75,3 @@ jobs:
           set -o pipefail
           function_version=$( aws lambda publish-version --function-name ${{ secrets.LAMBDA_FUNCTION }} | jq -r ".Version" )
           echo '::set-output name=function_version::'"$function_version"
-          
-      - name: Commit and push package modifications
-        run: |
-          git add package.json
-          git add package-lock.json
-          git commit -m "docs: updated package with ${{ steps.bumper.outputs.new_version }} [skip ci]"
-          git push
