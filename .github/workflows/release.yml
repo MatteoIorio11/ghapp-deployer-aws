@@ -54,7 +54,7 @@ jobs:
         run: npm ci --production
 
       - name: Create lambda archive
-        run: zip -r auto-me-bot.zip . -i src/ node_modules/
+        run: zip -r auto-me-bot.zip . -i src/
 
       - name: Get function state
         id: function_state
