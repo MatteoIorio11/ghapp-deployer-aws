@@ -1,10 +1,8 @@
-const {
-  createLambdaFunction,
-  createProbot,
-} = require("@probot/adapter-aws-lambda-serverless");
-
-const appFn = require("./app");
-
-module.exports.webhooks = createLambdaFunction(appFn, {
-  probot: createProbot(),
-});
+exports.handler = async (event) => {
+  // TODO implement
+  const response = {
+      statusCode: 200,
+      body: JSON.stringify('Hello from Lambda!'),
+  };
+  return response;
+};
