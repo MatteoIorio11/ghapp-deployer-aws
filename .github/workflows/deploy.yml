@@ -5,6 +5,7 @@ on:
   workflow_dispatch
 
 jobs:
+    run:
       - name: Install node 16
         uses: actions/setup-node@v3
         with:
