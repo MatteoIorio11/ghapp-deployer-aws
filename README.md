@@ -1,6 +1,6 @@
 # dummy-ghapp-deployer
 <h1>
-Deployer of Probot app on aws lambda 
+Deployer of Probot app on AWS Lambda 
 </h1>
 
 <h2> – AWS SETUP </h2> 
