@@ -46,11 +46,18 @@ After that, in the section CODE of your function, you will see a voice : Info Ma
   <li>Create a handler.js</li>
   <li>Create a package.json for all the dependencies</li> 
   </ul>
+  
+  <!---
 (You can copy the one inside auto-me-bot, maybe most of the packages are useless but I really do not care the most important things is that works ahahahahha)
+-->
+
 
 ---
 
-–DEPLOY THE LAMBDA 
-Go to “Actions”
-Click on “Release”
-Click on “Run Workflow” and you App will be deployed on AWS ^_^ 
+<h2>DEPLOY THE LAMBDA </h2>
+<ol>
+  <li>Go to “Actions”</li>
+  <li>Click on “Release”</li>
+  <li>Click on “Run Workflow” and you App will be deployed on AWS ^_^ </li>
+  </ol>
+  
