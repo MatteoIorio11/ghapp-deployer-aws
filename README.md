@@ -18,7 +18,7 @@ Deployer of Probot app on AWS Lambda
        </div>
   
   
-  <li> You have to create a TRIGGER for the lambda function, the trigger has to be : API Gateway, when you are doing this set the  authorization at NONE. Once you have created the API Trigger, you will see a API ENDPOINT like this : API endpoint: https://ffhxge8j75.execute-api.us-east-1.amazonaws.com/default/dummy-function, copy this link and put it in the << Webhook URL >> of your app. </li> 
+  <li> You have to create a TRIGGER for the lambda function, the trigger has to be : API Gateway, when you are doing this set the  authorization at NONE. Once you have created the API Trigger, you will see a API ENDPOINT like this : API endpoint: https://ffhxge8j75.execute-api.us-east-1.amazonaws.com/default/{name-of-your-function}, copy this link and put it in the << Webhook URL >> of your app. </li> 
   <li> Create 3 environment variables for the function : 
   <ul>
     <li> APP_ID : the number of you app id </li>
