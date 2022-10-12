@@ -45,7 +45,7 @@ jobs:
         run: npm ci --production
 
       - name: Create lambda archive
-        run: zip -r auto-me-bot.zip .
+        run: zip -r function.zip .
 
       - name: Get function state
         id: function_state
@@ -62,7 +62,7 @@ jobs:
         run: >
           aws lambda update-function-code
           --function-name ${{ secrets.LAMBDA_FUNCTION }}
-          --zip-file fileb://./auto-me-bot.zip
+          --zip-file fileb://./function.zip
       - name: Wait for function to be updated
         run: aws lambda wait function-updated --function-name ${{ secrets.LAMBDA_FUNCTION }}
 
