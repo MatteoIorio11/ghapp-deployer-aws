@@ -42,7 +42,7 @@ After that, in the section CODE of your function, you will see a voice : Info Ma
     <li> LAMBDA_FUNCTION → the name of your function </li></ul>
   </li>
  <!-- <li> Also create a DEPLOY KEY </li>( I do not know if this is useful or not) -->
-  <li>Create a app.js</li>
+  <li>Create an app.js</li>
   <li>Create a handler.js</li>
   <li>Create a package.json for all the dependencies</li> 
   </ul>
