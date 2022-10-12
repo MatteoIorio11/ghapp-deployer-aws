@@ -2,15 +2,7 @@
 name: deploy_lambda
 
 on:
-  workflow_dispatch:
-    inputs:
-      title:
-        description: "Release title"
-        required: false
-      tweet:
-        description: "Tweet new release?"
-        required: false
-        default: "no"
+  workflow_dispatch
 
 jobs:
       - name: Install node 16
