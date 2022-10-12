@@ -1,5 +1,5 @@
 ---
-name: Release
+name: deploy_lambda
 
 on:
   workflow_dispatch:
