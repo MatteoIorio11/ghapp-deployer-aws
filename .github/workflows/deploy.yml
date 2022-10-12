@@ -5,7 +5,17 @@ on:
   workflow_dispatch
 
 jobs:
-    run:
+    release:
+      runs-on: ubuntu-latest
+      environment: deployment
+      name: Build, publish, release, and announce
+      steps:
+        - name: Checkout sources
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+            ssh-key: ${{ secrets.DEPLOY_KEY }}
+
       - name: Install node 16
         uses: actions/setup-node@v3
         with:
