@@ -22,7 +22,7 @@ Deployer of Probot app on AWS Lambda
   <li> Create 3 environment variables for the function : 
   <ul>
     <li> APP_ID : the number of you app id </li>
-      <li> PRIVATE:KEY : the private key of the github app </li>
+      <li> PRIVATE_KEY : the private key of the github app </li>
       <li> WEBHOOK_SECRET : the secret of your webhook [OPTIONAL, you have to put this if you have a SECRET ] </ul></li>
   </li>
 </ol>
