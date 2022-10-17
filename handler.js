@@ -1,6 +1,6 @@
 
-const { Probot } = require('probot');
-const handler = require('./app');
+const { createProbot } = require('probot');
+const {createLambdaFunction} = require("./create-lambda");
 
 const appFn = require("./app");
 
