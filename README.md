@@ -3,6 +3,17 @@
 Deployer of Probot app on AWS Lambda 
 </h1>
 
+
+-----
+created Lambda Function : aws lambda create-function --function-name my-function --zip-file fileb://function.zip --handler index.handler --runtime nodejs16.x --role arn:aws:iam::123456789012:role/lambda-ex
+
+
+add env variables : aws lambda update-function-configuration --function-name YourFunction --environment "Variables={COLOR=green,FRUIT=avocado}" --query "Environment"
+
+-----
+
+
+
 <h2> – AWS SETUP </h2> 
 <ol> 
   <li>You have to create a lambda function on AWS.</li>
