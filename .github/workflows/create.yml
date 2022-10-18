@@ -49,9 +49,21 @@ jobs:
       - name: Wait for function to be created
         run: aws lambda wait function-exists --function-name ${{ secrets.LAMBDA_FUNCTION_2 }}
       
-      -name: Set all the enviromental variables
-        run:
+      #We have to create a new API, that as to be a REST API, security -> OPEN, API-NAME -> something like ${{ secrets.LAMBDA_FUNCTION}}-API,
+      #deployment stage -> default, enable-metrics-and-error-logging -> TRUE
+      #The new API will be attached at the API-TRIGGER
+      #And then we have to attach the the API-TRIGGER to the Function
 
-      -name: Create the API Trigger
-        run: 
+      #-name: Set all the enviromental variables
+      #  run:
+
+      #-name: Create the API
+      #  run:
+
+      #-name: Create API-TRIGGER
+      #   run:
+
+      #-name: Attach API-TRIGGER to function
+      #   run:
+      
       
