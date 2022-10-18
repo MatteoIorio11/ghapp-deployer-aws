@@ -51,6 +51,7 @@ jobs:
       
       #We have to create a new API, that as to be a REST API, security -> OPEN, API-NAME -> something like ${{ secrets.LAMBDA_FUNCTION}}-API,
       #deployment stage -> default, enable-metrics-and-error-logging -> TRUE
+      # see this : https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-rest-api.html
       #The new API will be attached at the API-TRIGGER
       #And then we have to attach the the API-TRIGGER to the Function
 
