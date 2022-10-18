@@ -54,8 +54,12 @@ jobs:
       # see this : https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-rest-api.html
       #And then we have to attach the the API-TRIGGER to the Function
 
-      #-name: Set all the enviromental variables
-      #  run:
+      -name: Set all the enviromental variables
+        run: > 
+         aws lambda update-function-configuration \
+         --function-name YourFunction  \
+         --environment "Variables={COLOR=green,FRUIT=avocado}" \
+         --query "Environment"
       
       #-name: Create API-TRIGGER
       #   run:
