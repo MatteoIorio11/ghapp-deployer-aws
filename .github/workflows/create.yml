@@ -51,8 +51,8 @@ jobs:
         run: aws lambda wait function-exists --function-name ${{ secrets.LAMBDA_FUNCTION }}
 
       - name: Get the arn of the created function  
-        run: |
-          arn=${aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION}} }
+        run: >
+          aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION}} | jq[FunctionArn]
 
       #- name: Create the rest-api for the trigger
       #  run: >
