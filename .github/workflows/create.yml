@@ -46,8 +46,13 @@ jobs:
            --runtime nodejs16.x \
            --role ${{ secrets.AWS_FUNCTION_ROLE }} \
            --environment "Variables={APP_ID=${{ secrets.AWS_GHAPP_ID}},PRIVATE_KEY=${{ secrets.AWS_GHAPP_PRIVATE_KEY }},WEBHOOK_SECRET=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET }}}"
+      
       - name: Wait for function to be created
         run: aws lambda wait function-exists --function-name ${{ secrets.LAMBDA_FUNCTION }}
+
+      - name: Create the rest-api for the trigger
+      - run: >
+            aws apigateway create-rest-api --name ${{ secrets.AWS_API_NAME }} --description 'This is the rest api used inside in the API-TRIGGER'
 
       #- name: Set all the enviromental variables
       #  run: >
