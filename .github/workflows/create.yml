@@ -44,7 +44,7 @@ jobs:
           aws lambda create-function --function-name ${{ secrets.LAMBDA_FUNCTION_2 }}
            --zip-file fileb://function.zip --handler handler.webhooks
            --runtime nodejs16.x 
-           --role ${{ secrets.AWS_FUNCTION_ROLE }}
+           --role arn:aws:iam::310989808867:role/ghapp-role
 
       - name: Wait for function to be created
         run: aws lambda wait function-exists --function-name ${{ secrets.LAMBDA_FUNCTION_2 }}
