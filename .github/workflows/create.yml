@@ -51,9 +51,7 @@ jobs:
       - name: Set all the enviromental variables
         run: >
              aws lambda update-function-configuration --function-name ${{ secrets.LAMBDA_FUNCTION }}  \
-             --environment "Variables={APP_ID=${{ secrets.AWS_GHAPP_ID}}, \
-                                       PRIVATE_LEY=${{ secrets.AWS_GHAPP_PRIVATE_KEY }}, \
-                                       WEBHOOK_SECRET=${{ secrets.AWS.GHAPP_WEBHOOK_SECRET }} }" \
+             --environment "Variables={APP_ID=${{ secrets.AWS_GHAPP_ID}},PRIVATE_LEY=${{ secrets.AWS_GHAPP_PRIVATE_KEY }},WEBHOOK_SECRET=${{ secrets.AWS.GHAPP_WEBHOOK_SECRET }} }" \
              --query "Environment"
          
       #-name: Create API-TRIGGER
