@@ -45,13 +45,14 @@ jobs:
            --zip-file fileb://function.zip --handler handler.webhooks \
            --runtime nodejs16.x \
            --role ${{ secrets.AWS_FUNCTION_ROLE }}
+           --environment "Variables={APP_ID="1",PRIVATE_KEY="2",WEBHOOK_SECRET="3"}"
+
       - name: Wait for function to be created
         run: aws lambda wait function-exists --function-name ${{ secrets.LAMBDA_FUNCTION }}
 
-      - name: Set all the enviromental variables
-        run: >
-             aws lambda update-function-configuration --function-name ${{ secrets.LAMBDA_FUNCTION }}  \
-             --environment "Variables={APP_ID="1",PRIVATE_KEY="2",WEBHOOK_SECRET="3"}"
+      #- name: Set all the enviromental variables
+      #  run: >
+      #       aws lambda update-function-configuration --function-name ${{ secrets.LAMBDA_FUNCTION }}  \
       #aws lambda update-function-configuration --function-name my-function \
       #--environment "Variables={BUCKET=my-bucket,KEY=file.txt}"
       #-name: Create API-TRIGGER
