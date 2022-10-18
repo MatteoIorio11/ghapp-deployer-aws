@@ -39,5 +39,11 @@ jobs:
       - name: Create lambda archive
         run: zip -r function.zip .
 
-      - name Create lambda function
-        run: aws lambda create-function --function-name ghrunner-function --zip-file fileb://function.zip --handler handler.webhooks --runtime nodejs16.x --role ${{ secrets.AWS_FUNCTION_ROLE }}
+      - name: Create lambda function
+        run: >
+          aws lambda create-function --function-name ${{ secrets.LAMBDA_FUNCTION }}
+           --zip-file fileb://function.zip --handler handler.webhooks
+           --runtime nodejs16.x --role ${{ secrets.AWS_FUNCTION_ROLE }}
+
+      - name: Wait for function to be created
+        run: aws lambda wait function-exists --function-name ${{ secrets.LAMBDA_FUNCTION }}
