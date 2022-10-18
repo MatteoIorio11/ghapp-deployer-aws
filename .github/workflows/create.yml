@@ -57,10 +57,7 @@ jobs:
 
       #-name: Set all the enviromental variables
       #  run:
-
-      #-name: Create the API
-      #  run:
-
+      
       #-name: Create API-TRIGGER
       #   run:
 
