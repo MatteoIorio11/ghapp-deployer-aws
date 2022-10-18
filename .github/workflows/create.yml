@@ -51,7 +51,7 @@ jobs:
       - name: Set all the enviromental variables
         run: >
              aws lambda update-function-configuration --function-name ${{ secrets.LAMBDA_FUNCTION }}  \
-             --environment "Variables={APP_ID=1,PRIVATE_KEY=2,WEBHOOK_SECRET=3}"
+             --environment "Variables={APP_ID="1",PRIVATE_KEY="2",WEBHOOK_SECRET="3"}"
       #aws lambda update-function-configuration --function-name my-function \
       #--environment "Variables={BUCKET=my-bucket,KEY=file.txt}"
       #-name: Create API-TRIGGER
