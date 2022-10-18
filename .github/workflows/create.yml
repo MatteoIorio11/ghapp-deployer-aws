@@ -51,8 +51,7 @@ jobs:
         run: aws lambda wait function-exists --function-name ${{ secrets.LAMBDA_FUNCTION }}
 
       - name: Create the rest-api for the trigger
-      - run: >
-            aws apigateway create-rest-api --name ${{ secrets.AWS_API_NAME }} --description 'This is the rest api used inside in the API-TRIGGER'
+      - run: aws apigateway create-rest-api --name ${{ secrets.AWS_API_NAME }} --description "This is the rest api used inside in the API-TRIGGER"
 
       #- name: Set all the enviromental variables
       #  run: >
