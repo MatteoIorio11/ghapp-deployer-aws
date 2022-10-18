@@ -52,7 +52,7 @@ jobs:
 
       - name: Get the arn of the created function  
         run: >
-          aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION}} | jq[FunctionArn]
+          aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION}} | jq  '.[0]'
 
       #- name: Create the rest-api for the trigger
       #  run: >
