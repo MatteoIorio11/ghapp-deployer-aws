@@ -54,7 +54,7 @@ jobs:
         run: >
           aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION}} | jq  '.[0]'
 
-      #- name: Create the rest-api for the trigger
+      #- name: Create the http-trigger
       #  run: >
       #      aws apigatewayv2 create-api \
       #      --name $ {{ secrets.AWS_API_NAME}} \
