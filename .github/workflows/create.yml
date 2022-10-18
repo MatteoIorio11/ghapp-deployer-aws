@@ -59,7 +59,7 @@ jobs:
       #      aws apigatewayv2 create-api \
       #      --name $ {{ secrets.AWS_API_NAME}} \
       #      --protocol-type HTTP \
-      #      --target arn[FunctionArn] 
+      #      --target arn[FunctionArn] <- the arn of the created function
 
 
       #- name: Set all the enviromental variables
