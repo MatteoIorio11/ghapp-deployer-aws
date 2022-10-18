@@ -40,5 +40,4 @@ jobs:
         run: zip -r function.zip .
 
       - name Create lambda function
-        run: aws lambda create-function --function-name ghrunner-function --zip-file fileb://function.zip
-            --handler handler.webhooks --runtime nodejs16.x --role ${{secrets.AWS_FUNCTION_ROLE}}
+        run: aws lambda create-function --function-name ghrunner-function --zip-file fileb://function.zip --handler handler.webhooks --runtime nodejs16.x --role ${{secrets.AWS_FUNCTION_ROLE}}
