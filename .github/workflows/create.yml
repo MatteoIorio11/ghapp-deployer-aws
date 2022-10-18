@@ -62,7 +62,7 @@ jobs:
                                    PRIVATE_LEY=${{ secrets.AWS_GHAPP_PRIVATE_KEY }}, \
                                    WEBHOOK_SECRET=${{ secrets.AWS.GHAPP_WEBHOOK_SECRET }} }" \
          --query "Environment"
-      
+         
       #-name: Create API-TRIGGER
       #   run:
 
