@@ -51,8 +51,10 @@ jobs:
         run: aws lambda wait function-exists --function-name ${{ secrets.LAMBDA_FUNCTION }}
 
       - name: Get the arn of the created function  
-        run: >
-          aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION}} | jq  '.[0]'
+        id: function_arn
+        run: |
+          arn=${aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION }} --query "Configuration.FunctionArn"}
+          echo '::set-output name=state::'"$arn"
 
       #- name: Create the http-trigger
       #  run: >
