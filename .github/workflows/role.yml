@@ -33,5 +33,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name:
-        run:
+      - name: Create the role
+        run: aws iam create-role --role-name test_role \
+            --assume-role-policy-document file://./assume-role-policy-document.json
+      
+      - name: Attach role policy
+        run: aws iam attach-role-policy --role-name test_role \
+            --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+ 
