@@ -39,7 +39,22 @@ jobs:
       - name: Create lambda archive
         run: zip -r function.zip .
 
-      - name: Create the role 
-        run: aws iam create-role --role-name this_is_a_test --assume-role-policy-document file://CloudWatchLogsPolicy.json
+      #- name: Create the role 
+      #  run: aws iam create-role --role-name this_is_a_test --assume-role-policy-document file://CloudWatchLogsPolicy.json
 
-     
+      - name: Create lambda function
+        run: >
+          aws lambda create-function --function-name ${{ secrets.LAMBDA_FUNCTION }} \
+           --zip-file fileb://function.zip --handler handler.webhooks \
+           --runtime nodejs16.x \
+           --role ${{ secrets.AWS_FUNCTION_ROLE }} \
+           --environment "Variables={APP_ID=${{ secrets.AWS_GHAPP_ID}},PRIVATE_KEY=${{ secrets.AWS_GHAPP_PRIVATE_KEY }},WEBHOOK_SECRET=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET }}}"
+      
+      - name: Wait for function to be created
+        run: aws lambda wait function-exists --function-name ${{ secrets.LAMBDA_FUNCTION }}
+
+      - name: Get the arn of the created function and create the api for the trigger
+        run: |
+            arn=$(aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION }} --query "Configuration.FunctionArn" --output text)
+            aws apigatewayv2 create-api --name ${{ secrets.AWS_API_NAME}} --protocol-type HTTP --target $arn
+      
