@@ -2,11 +2,15 @@
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Action": [
-                "logs:*"
-            ],
             "Effect": "Allow",
-            "Resource": "*"
+            "Action": "logs:CreateLogGroup",
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ]
         }
     ]
 }
