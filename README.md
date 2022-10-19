@@ -45,6 +45,13 @@ Deployer of Probot app on AWS Lambda
         </p>
       </ol>
     </section>
+  
+  <section>
+    <h2> Update the code of your function </h2>
+    <p>
+      If you want to update function, just go to the 'Actions' and run the 
+    </p>
+  </section>
   </main>
 </body>
   <!-- 
