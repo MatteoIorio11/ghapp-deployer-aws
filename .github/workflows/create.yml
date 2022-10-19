@@ -56,10 +56,7 @@ jobs:
           arn=$(aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION }} --query "Configuration.FunctionArn")
 
       - name: Create the http-trigger
-        run: aws apigatewayv2 create-api \
-            --name ${{ secrets.AWS_API_NAME}} \
-            --protocol-type HTTP \
-            --target steps.function_arn.arn
+        run: aws apigatewayv2 create-api --name ${{ secrets.AWS_API_NAME}} --protocol-type HTTP --target steps.function_arn.arn
 
 
       #- name: Set all the enviromental variables
