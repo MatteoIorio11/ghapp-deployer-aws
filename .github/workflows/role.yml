@@ -33,15 +33,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Create the role
-        run: > 
-          aws iam create-role --role-name test_role --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}' 
+      #- name: Create the role
+      #  run: > 
+      #    aws iam create-role --role-name test_role --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}' 
       
-      - name: Attach role policy
-        run: >
-          aws iam attach-role-policy --role-name test_role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      #- name: Attach role policy
+      #  run: >
+      #    aws iam attach-role-policy --role-name test_role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
  
       - name: Get the arn
         run: >
-          arn=$(aws iam get-role --role-name test_role --query "Arn" --output text)
+          arn=$(aws iam get-role --role-name test_role --query "Role.RoleId" --output text)
           echo $arn
