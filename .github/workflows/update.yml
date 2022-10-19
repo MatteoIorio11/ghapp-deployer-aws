@@ -1,16 +1,8 @@
 ---
-name: Deploy Lambda
+name: Update Lambda
 
 on:
   workflow_dispatch:
-    inputs:
-      title:
-        description: "Release title"
-        required: false
-      tweet:
-        description: "Tweet new release?"
-        required: false
-        default: "no"
 
 jobs:
   release:
