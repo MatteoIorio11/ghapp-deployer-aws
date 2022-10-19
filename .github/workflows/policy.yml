@@ -1,7 +1,7 @@
 
      
 ---
-name: Create Lambda
+name: Create policy
 
 on:
   workflow_dispatch:
