@@ -1,0 +1,40 @@
+
+     
+---
+name: Create Lambda
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: deployment
+    name: Build, publish, release, and announce
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: Install node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: npm
+
+      - name: Configure git
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+      - name: Configure aws
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      
+      - name: Create the role 
+        run: aws iam create-role --role-name this_is_a_test --assume-role-policy-document file://CloudWatchLogsPolicy.json
+      
