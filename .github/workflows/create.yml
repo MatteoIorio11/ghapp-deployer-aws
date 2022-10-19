@@ -43,8 +43,8 @@ jobs:
         run: > 
           aws iam create-role --role-name ghapp-role --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}' 
       
-       - name: Attach the AWSLambdaBasicExecutionRole policy 
-        run: >
+      - name: Attach the AWSLambdaBasicExecutionRole policy 
+       run: >
           aws iam attach-role-policy --role-name ghapp-role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 
       - name: Create lambda function
@@ -64,4 +64,3 @@ jobs:
         run: |
             arn=$(aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION }} --query "Configuration.FunctionArn" --output text)
             aws apigatewayv2 create-api --name ${{ secrets.AWS_API_NAME}} --protocol-type HTTP --target $arn
-      
