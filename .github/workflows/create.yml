@@ -38,8 +38,10 @@ jobs:
 
       - name: Create lambda archive
         run: zip -r function.zip .
+
       -name: Create the role 
-        run: aws iam create-role --role-name ${{secrets.AWS_FUNCTION_ROLE}} --assume-role-policy-document file://policy.json
+        run: aws iam create-role --role-name this_is_a_test --assume-role-policy-document file://policy.json
+
       - name: Create lambda function
         run: >
           aws lambda create-function --function-name ${{ secrets.LAMBDA_FUNCTION }} \
