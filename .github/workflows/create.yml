@@ -53,8 +53,7 @@ jobs:
           echo $arn_role
           aws lambda create-function --function-name ${{ secrets.LAMBDA_FUNCTION }} \
            --zip-file fileb://function.zip --handler handler.webhooks \
-           --runtime nodejs16.x \
-           --role $arn_role \
+           --runtime nodejs16.x --role $arn_role \
            --environment "Variables={APP_ID=${{ secrets.AWS_GHAPP_ID}},PRIVATE_KEY=${{ secrets.AWS_GHAPP_PRIVATE_KEY }},WEBHOOK_SECRET=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET }}}"
       
       - name: Wait for function to be created
