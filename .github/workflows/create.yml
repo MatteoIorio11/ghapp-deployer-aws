@@ -53,7 +53,7 @@ jobs:
       - name: Get the arn of the created function  
         id: function_arn
         run: |
-          arn=$(aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION }} --query "Configuration.FunctionArn" --output text)
+          export arn=$(aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION }} --query "Configuration.FunctionArn" --output text)
 
       - name: Create the http-trigger
         run: echo $arn
