@@ -34,8 +34,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Create the role
-        run: aws iam create-role --role-name test_role \
-            --assume-role-policy-document file://assume-role-policy-document.json
+        run: aws iam create-role --role-name test_role --assume-role-policy-document file://assume-role-policy-document.json
       
       - name: Attach role policy
         run: aws iam attach-role-policy --role-name test_role \
