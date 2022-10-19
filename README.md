@@ -41,7 +41,7 @@ Deployer of Probot app on AWS Lambda
       </ol>
         <h3>Attach the API-Gateway in to the GH Application </h3>
         <p>
-            Once the API-Gateway is created, you have to copy the 'API endpoint' and put it inside your GitHub application's webhook_url. Now you Function can work withot problems. The handler of your Function is : handler.webhooks, if in the future you want to change this you have to go to the section : 'Code' and set the new 'Handler' by clicking on 'Edit'.  
+            Once the API-Gateway is created, you have to copy the 'API endpoint' and put it inside your GitHub application's webhook_url. <i> Now you Function is ready to go </i>. The handler of your Function is : handler.webhooks, if in the future you want to change this you have to go to the section : 'Code' and set the new 'Handler' by clicking on 'Edit'.  
         </p>
       </ol>
     </section>
