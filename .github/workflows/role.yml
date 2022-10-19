@@ -34,7 +34,8 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Create the role
-        run: aws iam create-role --role-name test_role --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}' 
+        run: > 
+          aws iam create-role --role-name test_role --assume-role-policy-document "{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}" 
       
       - name: Attach role policy
         run: aws iam attach-role-policy --role-name test_role \
