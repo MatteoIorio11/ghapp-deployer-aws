@@ -3,7 +3,7 @@
     "Statement": [
         {
             "Effect": "Allow",
-            "Action": "logs:CreateLogGroup",
+            "Action": "logs:CreateLogGroup"
         },
         {
             "Effect": "Allow",
