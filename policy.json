@@ -3,13 +3,17 @@
     "Statement": [
         {
             "Effect": "Allow",
-            "Action": "logs:CreateLogGroup"
+            "Action": "logs:CreateLogGroup",
+            "Resource": "*"
         },
         {
             "Effect": "Allow",
             "Action": [
                 "logs:CreateLogStream",
                 "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "*"
             ]
         }
     ]
