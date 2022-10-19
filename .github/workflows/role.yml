@@ -1,5 +1,5 @@
 ---
-name: Create Lambda
+name: Create Role
 
 on:
   workflow_dispatch:
