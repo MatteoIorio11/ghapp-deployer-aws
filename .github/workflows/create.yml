@@ -39,13 +39,13 @@ jobs:
       - name: Create lambda archive
         run: zip -r function.zip .
 
-      #- name: Create the role
-      #  run: > 
-      #    aws iam create-role --role-name ghapp-role --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}' 
+      - name: Create the role
+        run: > 
+          aws iam create-role --role-name ghapp-role --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}' 
       
-       #- name: Attach the AWSLambdaBasicExecutionRole policy 
-       # run: >
-       #   aws iam attach-role-policy --role-name ghapp-role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+       - name: Attach the AWSLambdaBasicExecutionRole policy 
+        run: >
+          aws iam attach-role-policy --role-name ghapp-role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 
       - name: Create lambda function
         run: |
