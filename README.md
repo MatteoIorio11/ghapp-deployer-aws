@@ -1,4 +1,4 @@
-# dummy-ghapp-deployer
+# ghapp-deployer-aws
 <h1>
 Deployer of Probot app on AWS Lambda 
 </h1>
@@ -8,22 +8,22 @@ Deployer of Probot app on AWS Lambda
     <section>
       <h2> Create the AWS Function </h2>
         <p>
-          The first step of our code is to create the function by using the "create.yml" action. In order to use this action you have to set some secrets :
+          The first step of our code is to create the function by using the "create.yml" action. In order to use this action you <strong> must </strong> set this secrets :
         </p>
         <dl>
           <dt> Information for the authentication </dt>
-          <dd> AWS_ACCESS_KEY_ID : you can find this information inside the IAM Configuration </dd>
-          <dd> AWS_SECRET_ACCESS_KEY : you can find this information inside the IAM Configuration </dd>
-          <dd> AWS_REGION : region for the auth </dd>
+          <dd> <strong> AWS_ACCESS_KEY_ID </strong> : you can find this information inside the IAM Configuration </dd>
+          <dd> <strong> AWS_SECRET_ACCESS_KEY </strong> : you can find this information inside the IAM Configuration </dd>
+          <dd> <strong> AWS_REGION </strong> : region for the auth </dd>
           <dt> Function settings </dt>
-          <dd> AWS_FUNCTION_ROLE : the role for your function, you can create a role inside the IAM configuration. </dd>
-          <dd> LAMBDA_FUNCTION : this will be the name of your future function </dd>
+          <dd> <strong> AWS_FUNCTION_ROLE </strong> : the role for your function, you can create a role inside the IAM configuration. </dd>
+          <dd> <strong> LAMBDA_FUNCTION </strong> : this will be the name of your future function </dd>
           <dt> Values for the environmental variables </dt>
-          <dd> AWS_GHAPP_ID : the github app id </dd>
-          <dd> AWS_GHAPP_WEBHOOK_SECRET : the webhook secret </dd>
-          <dd> AWS_GHAPP_PRIVATE_KEY : the private key of your application </dd>
+          <dd> <strong> AWS_GHAPP_ID </strong> : the github app id </dd>
+          <dd> <strong> AWS_GHAPP_WEBHOOK_SECRET </strong> : the webhook secret </dd>
+          <dd> <strong> AWS_GHAPP_PRIVATE_KEY </strong> : the private key of your application </dd>
           <dt> Configuration of the TRIGGER </dt>
-          <dd> AWS_API_NAME : this will be the name of your http-api that will be used for the creation of the trigger </dd>
+          <dd> <strong> AWS_API_NAME </strong> : this will be the name of your http-api that will be used for the creation of the trigger </dd>
         </dl>
       <h3>Create the trigger</h3>
       <p>
@@ -41,7 +41,7 @@ Deployer of Probot app on AWS Lambda
       </ol>
         <h3>Attach the API-Gateway in to the GH Application </h3>
         <p>
-            Once the API-Gateway is created, you have to copy the 'API endpoint' and put it inside your GitHub application's webhook_url
+            Once the API-Gateway is created, you have to copy the 'API endpoint' and put it inside your GitHub application's webhook_url. <i> Now you Function is ready to go </i>. The handler of your Function is : handler.webhooks, if in the future you want to change this you have to go to the section : 'Code' and set the new 'Handler' by clicking on 'Edit'.  
         </p>
       </ol>
     </section>
