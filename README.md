@@ -22,6 +22,8 @@ Deployer of Probot app on AWS Lambda
           <dd> AWS_GHAPP_ID : the github app id </dd>
           <dd> AWS_GHAPP_WEBHOOK_SECRET : the webhook secret </dd>
           <dd> AWS_GHAPP_PRIVATE_KEY : the private key of your application </dd>
+          <dt> Configuration of the TRIGGER </dt>
+          <dd> AWS_API_NAME : this will be the name of your http-api that will be used for the creation of the trigger </dd>
         </dl>
     </section>
   </main>
