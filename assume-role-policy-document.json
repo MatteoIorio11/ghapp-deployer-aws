@@ -1,10 +1,12 @@
 {
     "Version" : "2012-10-17",
     "Statement" : [
-      "Effect": "Allow",
-      "Principa":{
-        "Service": "lambda.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
+      {
+        "Effect": "Allow",
+        "Principa":{
+          "Service": "lambda.amazonaws.com"
+        },
+        "Action": "sts:AssumeRole"
+     }
     ]
 }
