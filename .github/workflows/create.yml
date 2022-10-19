@@ -48,7 +48,7 @@ jobs:
        #   aws iam attach-role-policy --role-name ghapp-role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 
       - name: Create lambda function
-        run: >
+        run: |
           arn_role=$(aws iam get-role --role-name ghapp-role --query "Role.Arn" --output text)
           aws lambda create-function --function-name ${{ secrets.LAMBDA_FUNCTION }} \
           --zip-file fileb://function.zip \
