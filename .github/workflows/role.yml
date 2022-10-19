@@ -44,4 +44,4 @@ jobs:
       - name: Get the arn
         run: >
           arn=$(aws iam get-role --role-name test_role --query "Arn" --output text)
-          echo $arn
+          echo "dio porco "$arn
