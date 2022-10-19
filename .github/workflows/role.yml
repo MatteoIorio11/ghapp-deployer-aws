@@ -42,6 +42,6 @@ jobs:
       #    aws iam attach-role-policy --role-name test_role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
  
       - name: Get the arn
-        run: >
+        run: |
           arn=$(aws iam get-role --role-name test_role --query "Arn" --output text)
-          echo "dio porco "$arn
+          echo "this is a test"$arn
