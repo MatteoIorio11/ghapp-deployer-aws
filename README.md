@@ -17,9 +17,11 @@ Deployer of Probot app on AWS Lambda
           <dd> AWS_REGION : region for the auth </dd>
           <dt> Function settings </dt>
           <dd> AWS_FUNCTION_ROLE : the role for your function, you can create a role inside the IAM configuration, the role <strong>MUST</strong> have this policy name : AWSLambdaBasicExecutionRole-ef626d56-30a2-426d-a215-50f10b8781e3 </dd>
-          <dd> LAMBDA_FUNCTION : this will be the name of your future function </li>
+          <dd> LAMBDA_FUNCTION : this will be the name of your future function </dd>
           <dt> Values for the environmental variables </dt>
-          <dd></dd>
+          <dd> AWS_GHAPP_ID : the github app id </dd>
+          <dd> AWS_GHAPP_WEBHOOK_SECRET : the webhook secret </dd>
+          <dd> AWS_GHAPP_PRIVATE_KEY : the private key of your application </dd>
         </dl>
     </section>
   </main>
