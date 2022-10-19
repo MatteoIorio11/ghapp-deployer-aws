@@ -12,18 +12,18 @@ Deployer of Probot app on AWS Lambda
         </p>
         <dl>
           <dt> Information for the authentication </dt>
-          <dd> AWS_ACCESS_KEY_ID : you can find this information inside the IAM Configuration </dd>
-          <dd> AWS_SECRET_ACCESS_KEY : you can find this information inside the IAM Configuration </dd>
-          <dd> AWS_REGION : region for the auth </dd>
+          <dd> <strong> AWS_ACCESS_KEY_ID </strong> : you can find this information inside the IAM Configuration </dd>
+          <dd> <strong> AWS_SECRET_ACCESS_KEY </strong> : you can find this information inside the IAM Configuration </dd>
+          <dd> <strong> AWS_REGION </strong> : region for the auth </dd>
           <dt> Function settings </dt>
-          <dd> AWS_FUNCTION_ROLE : the role for your function, you can create a role inside the IAM configuration. </dd>
-          <dd> LAMBDA_FUNCTION : this will be the name of your future function </dd>
+          <dd> <strong> AWS_FUNCTION_ROLE </strong> : the role for your function, you can create a role inside the IAM configuration. </dd>
+          <dd> <strong> LAMBDA_FUNCTION </strong> : this will be the name of your future function </dd>
           <dt> Values for the environmental variables </dt>
-          <dd> AWS_GHAPP_ID : the github app id </dd>
-          <dd> AWS_GHAPP_WEBHOOK_SECRET : the webhook secret </dd>
-          <dd> AWS_GHAPP_PRIVATE_KEY : the private key of your application </dd>
+          <dd> <strong> AWS_GHAPP_ID </strong> : the github app id </dd>
+          <dd> <strong> AWS_GHAPP_WEBHOOK_SECRET </strong> : the webhook secret </dd>
+          <dd> <strong> AWS_GHAPP_PRIVATE_KEY </strong> : the private key of your application </dd>
           <dt> Configuration of the TRIGGER </dt>
-          <dd> AWS_API_NAME : this will be the name of your http-api that will be used for the creation of the trigger </dd>
+          <dd> <strong> AWS_API_NAME </strong> : this will be the name of your http-api that will be used for the creation of the trigger </dd>
         </dl>
       <h3>Create the trigger</h3>
       <p>
