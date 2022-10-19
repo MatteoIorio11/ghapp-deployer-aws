@@ -54,13 +54,7 @@ jobs:
         run: echo "ARN_ROLE=$(aws iam get-role --role-name ghapp-role --query "Role.Arn" --output text)" >> $GITHUB_ENV
 
       - name: Create the Function
-        run: >
-          aws lambda create-function --function-name ${{ secrets.LAMBDA_FUNCTION }} \
-          --zip-file fileb://function.zip \
-          --handler handler.webhooks \
-          --runtime nodejs16.x \
-          --role "${{ env.ARN_ROLE }}" \
-          --environment "Variables={APP_ID=${{ secrets.AWS_GHAPP_ID}},PRIVATE_KEY=${{ secrets.AWS_GHAPP_PRIVATE_KEY }},WEBHOOK_SECRET=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET }}}"
+        run: aws lambda create-function --function-name ${{ secrets.LAMBDA_FUNCTION }} --zip-file fileb://function.zip --handler handler.webhooks --runtime nodejs16.x --role "${{ env.ARN_ROLE }}" --environment "Variables={APP_ID=${{ secrets.AWS_GHAPP_ID}},PRIVATE_KEY=${{ secrets.AWS_GHAPP_PRIVATE_KEY }},WEBHOOK_SECRET=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET }}}"
       
       - name: Wait for function to be created
         run: aws lambda wait function-exists --function-name ${{ secrets.LAMBDA_FUNCTION }}
