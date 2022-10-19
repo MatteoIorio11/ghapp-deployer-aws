@@ -36,5 +36,5 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       
       - name: Create the role 
-        run: aws iam create-role --role-name this_is_a_test --assume-role-policy-document file://policy.json
+        run: aws iam create-role --role-name this_is_a_test --assume-role-policy-document arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
       
