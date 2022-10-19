@@ -25,6 +25,15 @@ Deployer of Probot app on AWS Lambda
           <dt> Configuration of the TRIGGER </dt>
           <dd> AWS_API_NAME : this will be the name of your http-api that will be used for the creation of the trigger </dd>
         </dl>
+      <p>
+          Once the create.yml execute all the jobs, the function will be created. The last step is to create a new 'Trigger'. 
+      </p>
+      <ol>
+        <li> Log-in AWS </li>
+        <li> Click on the search bar and type : Function (after that you will see all the functions) </li>
+        <li> Click on the function that you have just created, the name will be the same of your secret : LAMBDA_FUNCTION </li>
+        <li> </li> 
+      </ol>
     </section>
   </main>
 </body>
