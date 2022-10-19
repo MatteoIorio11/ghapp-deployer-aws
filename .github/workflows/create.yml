@@ -49,7 +49,7 @@ jobs:
 
       - name: Create lambda function
         run: >
-          arn_role=$(aws iam get-role --role-name test_role --query "Role.Arn" --output text)
+          arn_role=$(aws iam get-role --role-name ghapp-role --query "Role.Arn" --output text)
           aws lambda create-function --function-name ${{ secrets.LAMBDA_FUNCTION }} \
            --zip-file fileb://function.zip --handler handler.webhooks \
            --runtime nodejs16.x \
