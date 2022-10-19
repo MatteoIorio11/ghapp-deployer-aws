@@ -38,6 +38,7 @@ Deployer of Probot app on AWS Lambda
         <li> Click on 'add trigger' </li>
         <li> Select an API-GATEWAY, click on 'Use existing API' and type the name of the API that you used in the secret : AWS_API_NAME, then 
         'Deployment stage' click on '$default' and thent in 'Security' select 'Open'. Click on add </li> 
+      </ol>
         <h3>Attach the API-Gateway in to the GH Application </h3>
         <p>
             Once the API-Gateway is created, you have to copy the 'API endpoint' and put it inside your GitHub application's webhook_url
