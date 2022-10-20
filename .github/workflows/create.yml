@@ -47,7 +47,7 @@ jobs:
       #  run: aws iam attach-role-policy --role-name ghapp-role --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 
       - name: Wait for role to be created
-        run: aws iam wait role-exists --role-name ghapp-role
+        run: aws iam wait role-exists --role-name ghapp-role2
 
       - name: Get the arn of the role and then create the function
         run: |
