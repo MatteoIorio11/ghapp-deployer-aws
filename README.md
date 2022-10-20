@@ -16,7 +16,7 @@ Deployer of Probot app on AWS Lambda
           <dd> <strong> AWS_SECRET_ACCESS_KEY </strong> : you can find this information inside the IAM Configuration </dd>
           <dd> <strong> AWS_REGION </strong> : region for the auth </dd>
           <dt> Function settings </dt>
-          <dd> <strong> AWS_FUNCTION_ROLE </strong> : the role's arn for your function, you can create a role inside the IAM configuration. The role has to have the 'CloudWatchLogsFullAccess' as policy </dd>
+          <dd> <strong> AWS_FUNCTION_ROLE </strong> : the name for the role </dd>
           <dd> <strong> LAMBDA_FUNCTION </strong> : this will be the name of your future function </dd>
           <dt> Values for the environmental variables </dt>
           <dd> <strong> AWS_GHAPP_ID </strong> : the github app id </dd>
