@@ -24,7 +24,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: core.notice('The function already exists, it is not necessary to create another role. EXIT FROM THIS WORKFLOW ')
-          run: exit 0
+          run: exit_with_success
         
       - name: Configure git
         run: |
