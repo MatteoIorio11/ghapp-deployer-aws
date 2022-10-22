@@ -6,6 +6,18 @@ Deployer of Probot app on AWS Lambda
 <body>
   <main>
     <section>
+      <h2> How does it work? </h2>
+      <p>
+         This repository uses 3 differents actions : 
+      </p>
+      <ul>
+        <li> main.yml = for the creation of the Function's role </li>
+        <li> create.yml = for the creation of the Function </li>
+        <li> update.yml = for the update of the Function's code </li>
+      </ul>
+    </section>
+    
+    <section>
       <h2> Create the AWS Function </h2>
         <p>
           In order to use this repository you <strong> must </strong> set this secrets :
