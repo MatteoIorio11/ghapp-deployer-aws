@@ -8,7 +8,7 @@ Deployer of Probot app on AWS Lambda
     <section>
       <h2> How does it work? </h2>
       <p>
-         This repository uses 3 differents actions : 
+         This repository uses 3 different actions : 
       </p>
       <ul>
         <li> main.yml = for the creation of the Function's role </li>
@@ -66,6 +66,3 @@ Deployer of Probot app on AWS Lambda
   </section>
   </main>
 </body>
-  <!-- 
-the role <strong>MUST</strong> have this policy name : AWSLambdaBasicExecutionRole-ef626d56-30a2-426d-a215-50f10b8781e3
--->
