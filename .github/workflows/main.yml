@@ -10,10 +10,6 @@ on:
 jobs:
   on-failure:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success'}}
-      run: |
-      echo "a"
-      exit 0
     environment: deployment
     name: Create the role for the function
     steps:
@@ -22,6 +18,12 @@ jobs:
         with:
           fetch-depth: 0
           ssh-key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: A
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+          run: |
+            echo "The function already exists. EXIT 0"
+            exit 0
 
       - name: Configure git
         run: |
