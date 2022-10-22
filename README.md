@@ -8,7 +8,7 @@ Deployer of Probot app on AWS Lambda
     <section>
       <h2> Create the AWS Function </h2>
         <p>
-          The first step of our code is to create the function by using the "main.yml" action. In order to use this action you <strong> must </strong> set this secrets :
+          In order to use this repository you <strong> must </strong> set this secrets :
         </p>
         <dl>
           <dt> Information for the authentication </dt>
@@ -49,7 +49,7 @@ Deployer of Probot app on AWS Lambda
   <section>
     <h2> Update the code of your function </h2>
     <p>
-      If you want to update function, just go to the 'Actions' and run the 'update.yml' and your code function will be updated. 
+      Every time a pushed is done, the action automatically runs the "update.yml". In this way your Function will always be updated. 
     </p>
   </section>
   </main>
