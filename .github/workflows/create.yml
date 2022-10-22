@@ -20,9 +20,7 @@ jobs:
 
       - name: A
         if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-          run: |
-            echo "The function already exists. EXIT 0"
-            exit 0
+          run: echo "The function already exists. EXIT 0"; exit 0
 
       - name: Install node 16
         uses: actions/setup-node@v3
