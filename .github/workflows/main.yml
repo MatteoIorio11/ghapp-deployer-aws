@@ -2,10 +2,13 @@ name: Create Role
 
 # Only trigger, when the build workflow succeeded
 on:
-  workflow_dispatch:
+    workflow_run:
+    workflows: ["Update Lambda"]
+    types:
+      - completed
 
 jobs:
-  release:
+  on-failure:
     runs-on: ubuntu-latest
     environment: deployment
     name: Build, publish, release, and announce
