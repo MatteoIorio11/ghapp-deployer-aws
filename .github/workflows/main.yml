@@ -23,7 +23,7 @@ jobs:
         if: ${{ github.event.workflow_run.conclusion == 'success' }}
         uses: actions/github-script@v6
         with:
-          script: return "('The function already exists, it is not necessary to create another role. EXIT FROM THIS WORKFLOW ')"        
+          script: core.setFailed('The function already exists, it is not necessary to create another role. EXIT FROM THIS WORKFLOW ')        
 
       - name: Configure git
         run: |
