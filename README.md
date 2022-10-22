@@ -14,6 +14,9 @@ Deployer of Probot app on AWS Lambda
         <li> create.yml = for the creation of the Function </li>
         <li> update.yml = for the update of the Function's code </li>
       </ul>
+      <p>
+        Every time that a pushed is done in to the repository, the "update.yml" action starts. If the function does not exists, this action will fail and automatically will starts the "main.yml" and then the "create.yml". If the function exists, the "update.yml" will not fails, the "main.yml" and "create.yml" will start but in this actions there is a check for the "update.yml", if it does not fail it means that the function exists and this 2 workflows will automatically fail by this check.
+      </p>
     </section>
     <section>
       <h2> Create the AWS Function </h2>
