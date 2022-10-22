@@ -39,8 +39,6 @@ jobs:
       - name: Check if the lambda function exists
         id: function_exists
         run: aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION }}
-        if: steps.function_exists.outcome != 'success'
-        run: exit 1
 
       - name: Create lambda archive
         run: zip -r function.zip .
