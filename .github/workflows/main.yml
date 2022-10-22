@@ -10,8 +10,12 @@ on:
 jobs:
   on-failure:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success'}}
+      run: |
+      echo "a"
+      exit 0
     environment: deployment
-    name: Build, publish, release, and announce
+    name: Create the role for the function
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
@@ -44,4 +48,5 @@ jobs:
     name: Build, publish, release, and announce
     steps:
       - name: Checkout sources
+        if: $
         run: echo "The function already exists. exit 0"

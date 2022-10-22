@@ -7,10 +7,14 @@ on:
     types:
       - completed
 jobs:
-  on-success:
+  release:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+      run: |
+      echo "dio merda"
+      exit 0 
     environment: deployment
-    name: Build, publish, release, and announce
+    name: Create the AWS Function
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
@@ -59,8 +63,4 @@ jobs:
             arn=$(aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION }} --query "Configuration.FunctionArn" --output text)
             aws apigatewayv2 create-api --name ${{ secrets.AWS_API_NAME}} --protocol-type HTTP --target $arn
     
-  on-failure:
-    runs-on: ubuntu-latest
-      steps:
-        - run: echo "The function already exists. exit 0"
 
