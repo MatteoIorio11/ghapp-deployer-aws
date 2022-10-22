@@ -63,5 +63,7 @@ jobs:
         run: |
             arn=$(aws lambda get-function --function-name ${{ secrets.LAMBDA_FUNCTION }} --query "Configuration.FunctionArn" --output text)
             aws apigatewayv2 create-api --name ${{ secrets.AWS_API_NAME}} --protocol-type HTTP --target $arn
+      
+      environment: deployment
     
 
