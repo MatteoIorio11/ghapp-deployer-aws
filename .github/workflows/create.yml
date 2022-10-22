@@ -22,7 +22,8 @@ jobs:
         if: ${{ github.event.workflow_run.conclusion == 'failure' }}
         uses: actions/github-script@v6
         with:
-          script: core.setFailed('The function already exists. EXIT FROM THIS WORKFLOW ')
+          script: core.notice('The function already exists. EXIT FROM THIS WORKFLOW ')
+          run: exit 0
 
       - name: Install node 16
         uses: actions/setup-node@v3
