@@ -2,7 +2,6 @@
 <h1>
 Deployer of Probot app on AWS Lambda 
 </h1>
-
 <body>
   <main>
     <section>
@@ -16,7 +15,6 @@ Deployer of Probot app on AWS Lambda
         <li> update.yml = for the update of the Function's code </li>
       </ul>
     </section>
-    
     <section>
       <h2> Create the AWS Function </h2>
         <p>
