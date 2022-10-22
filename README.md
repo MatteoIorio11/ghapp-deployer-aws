@@ -2,13 +2,26 @@
 <h1>
 Deployer of Probot app on AWS Lambda 
 </h1>
-
 <body>
   <main>
     <section>
+      <h2> How does it work? </h2>
+      <p>
+         This repository uses 3 different actions : 
+      </p>
+      <ul>
+        <li> main.yml = for the creation of the Function's role </li>
+        <li> create.yml = for the creation of the Function </li>
+        <li> update.yml = for the update of the Function's code </li>
+      </ul>
+      <p>
+        Every time that a pushed is done in to the repository, the "update.yml" action starts. If the function does not exists, this action will fail and automatically will starts the "main.yml" and then the "create.yml". If the function exists, the "update.yml" will not fails, the "main.yml" and "create.yml" will start but in this actions there is a check for the "update.yml", if it does not fail it means that the function exists and this 2 workflows will automatically fail by this check.
+      </p>
+    </section>
+    <section>
       <h2> Create the AWS Function </h2>
         <p>
-          The first step of our code is to create the function by using the "main.yml" action. In order to use this action you <strong> must </strong> set this secrets :
+          In order to use this repository you <strong> must </strong> set this secrets :
         </p>
         <dl>
           <dt> Information for the authentication </dt>
@@ -49,11 +62,8 @@ Deployer of Probot app on AWS Lambda
   <section>
     <h2> Update the code of your function </h2>
     <p>
-      If you want to update function, just go to the 'Actions' and run the 'update.yml' and your code function will be updated. 
+      Every time a pushed is done, the action automatically runs the "update.yml". In this way your Function will always be updated. 
     </p>
   </section>
   </main>
 </body>
-  <!-- 
-the role <strong>MUST</strong> have this policy name : AWSLambdaBasicExecutionRole-ef626d56-30a2-426d-a215-50f10b8781e3
--->
