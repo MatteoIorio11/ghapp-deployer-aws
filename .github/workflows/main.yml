@@ -2,7 +2,7 @@ name: Create Role
 
 # Only trigger, when the build workflow succeeded
 on:
-    workflow_run:
+  workflow_run:
     workflows: ["Update Lambda"]
     types:
       - completed
