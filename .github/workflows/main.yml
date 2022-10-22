@@ -41,12 +41,3 @@ jobs:
           
       - name: Wait for role to be created
         run: aws iam wait role-exists --role-name ${{ secrets.AWS_FUNCTION_ROLE }}
-  
-  on-success:
-    runs-on: ubuntu-latest
-    environment: deployment
-    name: Build, publish, release, and announce
-    steps:
-      - name: Checkout sources
-        if: $
-        run: echo "The function already exists. exit 0"
