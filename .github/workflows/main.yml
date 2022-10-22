@@ -21,9 +21,7 @@ jobs:
 
       - name: A
         if: ${{ github.event.workflow_run.conclusion == 'success' }}
-          run: |
-            echo "The function already exists. EXIT 0"
-            exit 0
+          run: exit 0
 
       - name: Configure git
         run: |
