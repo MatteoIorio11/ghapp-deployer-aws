@@ -9,7 +9,6 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    environment: deployment
     name: Create the AWS Function
     steps:
       - name: Checkout sources

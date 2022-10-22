@@ -10,7 +10,6 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    environment: deployment
     name: Create the role for the function
     steps:
       - name: Checkout sources
