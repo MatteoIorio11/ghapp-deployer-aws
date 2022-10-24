@@ -3,6 +3,8 @@ name: Update Lambda
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   release:
