@@ -10,7 +10,7 @@ Parameters:
   githubWebhookSecret:
     Description: The webhook secret of your GitHub app
     Type: String
-    Default: {{ secrets.AWS_GHAPP_WEBHOOK_SECRET }}
+    Default: ${{ secrets.AWS_GHAPP_WEBHOOK_SECRET }}
   githubPrivateKey:
     Description: The private key of your GitHub app
     Type: String
