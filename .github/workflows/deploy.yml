@@ -3,6 +3,7 @@ name: Deploy the lambda using AWS Sam
   push:
     branches:
       - main
+      # aws-sam
   workflow_dispatch: {}
 jobs:
   deploy:
