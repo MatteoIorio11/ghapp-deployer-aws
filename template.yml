@@ -36,5 +36,5 @@ Resources:
       Environment:
         Variables:
           APP_ID: !Ref githubAppId
-          WEBHOOK_SECRET: "aa"
+          WEBHOOK_SECRET: !ref githubWebhookSecret
           PRIVATE_KEY: !Ref githubPrivateKey
