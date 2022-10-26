@@ -13,6 +13,17 @@ Parameters:
     Description: The private key of your GitHub app
     Type: String
 
+
+Globals:
+  Function:
+    Environment:
+      Variables:
+        APP_ID: ${{ secrets.AWS_GHAPP_ID }}
+        WEBHOOK_SECRET: ${{ secrets.AWS_GHAPP_WEBHOOK_SECRET}}
+        PRIVATE_KEY: ${{ secrets.AWS_GHAPP_PRIVATE_KEY }}
+
+# --parameter-overrides githubAppId=${{ secrets.AWS_GHAPP_ID }},githubWebhookSecret=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET}},githubPrivateKey=${{ secrets.AWS_GHAPP_PRIVATE_KEY }} -
+
 Resources:
   webhooks:
     Type: AWS::Serverless::Function
@@ -33,8 +44,3 @@ Resources:
           Properties:
             Path: /ghrunner-app
             Method: post
-      Environment:
-        Variables:
-          APP_ID: !Ref githubAppId
-          WEBHOOK_SECRET: !ref githubWebhookSecret
-          PRIVATE_KEY: !Ref githubPrivateKey
