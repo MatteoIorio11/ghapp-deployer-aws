@@ -22,4 +22,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - run: sam build webhooks
-      - run: sam deploy --stack-name sam-app --region us-east-1--capabilities CAPABILITY_IAM --no-confirm-changeset --no-fail-on-empty-changeset 
+      - run: sam deploy --stack-name sam-app --region us-east-1 --capabilities CAPABILITY_IAM --no-confirm-changeset --no-fail-on-empty-changeset 
