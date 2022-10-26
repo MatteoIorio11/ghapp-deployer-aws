@@ -6,6 +6,7 @@ Parameters:
   githubAppId:
     Description: The App ID of your GitHub app
     Type: String
+    Default: 
   githubWebhookSecret:
     Description: The webhook secret of your GitHub app
     Type: String
@@ -13,7 +14,7 @@ Parameters:
     Description: The private key of your GitHub app
     Type: String
 
-
+#  --config-env githubAppId=${{ secrets.AWS_GHAPP_ID }},githubWebhookSecret=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET}},githubPrivateKey=${{ secrets.AWS_GHAPP_PRIVATE_KEY }}  
 # --parameter-overrides githubAppId=${{ secrets.AWS_GHAPP_ID }},githubWebhookSecret=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET}},githubPrivateKey=${{ secrets.AWS_GHAPP_PRIVATE_KEY }} -
 
 Resources:
