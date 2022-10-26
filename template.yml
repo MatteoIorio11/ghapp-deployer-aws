@@ -16,7 +16,6 @@ Parameters:
     Type: String
     Default: ${ secrets.AWS_GHAPP_PRIVATE_KEY }
 
-#  --config-env githubAppId=${{ secrets.AWS_GHAPP_ID }},githubWebhookSecret=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET}},githubPrivateKey=${{ secrets.AWS_GHAPP_PRIVATE_KEY }}  
 # --parameter-overrides githubAppId=${{ secrets.AWS_GHAPP_ID }},githubWebhookSecret=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET}},githubPrivateKey=${{ secrets.AWS_GHAPP_PRIVATE_KEY }} -
 
 Resources:
