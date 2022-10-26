@@ -1,4 +1,4 @@
-name: Deploy the lambda
+name: Deploy the lambda using AWS Sam
 "on":
   push:
     branches:
