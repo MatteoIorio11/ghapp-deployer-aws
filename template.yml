@@ -2,13 +2,17 @@ AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: Serverless GitHub app
 
-Globals:
-  Function:
-    Environment:
-      Variables:
-        APP_ID: ${{ secrets.AWS_GHAPP_ID }}
-        WEBHOOK_SECRET: ${{ secrets.AWS_GHAPP_WEBHOOK_SECRET}}
-        PRIVATE_KEY: ${{ secrets.AWS_GHAPP_PRIVATE_KEY }}
+Parameters:
+  githubAppId:
+    Description: The App ID of your GitHub app
+    Type: String
+  githubWebhookSecret:
+    Description: The webhook secret of your GitHub app
+    Type: String
+  githubPrivateKey:
+    Description: The private key of your GitHub app
+    Type: String
+
 
 # --parameter-overrides githubAppId=${{ secrets.AWS_GHAPP_ID }},githubWebhookSecret=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET}},githubPrivateKey=${{ secrets.AWS_GHAPP_PRIVATE_KEY }} -
 
@@ -32,3 +36,8 @@ Resources:
           Properties:
             Path: /ghrunner-app
             Method: post
+      Environment:
+        Variables:
+          APP_ID: !Ref githubAppId
+          WEBHOOK_SECRET: !ref githubWebhookSecret
+          PRIVATE_KEY: !Ref githubPrivateKey
