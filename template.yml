@@ -13,8 +13,6 @@ Parameters:
     Description: The private key of your GitHub app
     Type: String
 
-# --parameter-overrides githubAppId=${{ secrets.AWS_GHAPP_ID }},githubWebhookSecret=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET}},githubPrivateKey=${{ secrets.AWS_GHAPP_PRIVATE_KEY }} -
-
 Resources:
   webhooks:
     Type: AWS::Serverless::Function
