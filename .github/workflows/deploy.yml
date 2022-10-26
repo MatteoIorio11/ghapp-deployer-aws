@@ -22,4 +22,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - run: sam build
-      - run: --stack-name sam-app --s3-bucket aws-us-east-1-310989808867-dummy-lambda-pipe --capabilities CAPABILITY_IAM --no-confirm-changeset --no-fail-on-empty-changeset 
+      - run: sam deploy --stack-name sam-app --s3-bucket aws-us-east-1-310989808867-dummy-lambda-pipe --capabilities CAPABILITY_IAM --no-confirm-changeset --no-fail-on-empty-changeset 
