@@ -22,11 +22,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - run: sam build webhooks
-      - run: |
-         sam deploy sam deploy --stack-name sam-app \
-          --resolve-s3 \
-          --capabilities CAPABILITY_IAM \
-          --parameter-overrides githubAppId=${{ secrets.AWS_GHAPP_ID }} \
-          --parameter-overrides githubWebhookSecret=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET }} \
-          --parameter-overrides githubPrivateKey=${{ secrets.AWS_GHAPP_PRIVATE_KEY }} \
-          --no-confirm-changeset
+      - run: sam deploy sam deploy --stack-name sam-app --resolve-s3 --capabilities CAPABILITY_IAM --parameter-overrides githubAppId=${{ secrets.AWS_GHAPP_ID }} --parameter-overrides githubWebhookSecret=${{ secrets.AWS_GHAPP_WEBHOOK_SECRET }} --parameter-overrides githubPrivateKey=${{ secrets.AWS_GHAPP_PRIVATE_KEY }} --no-confirm-changeset
