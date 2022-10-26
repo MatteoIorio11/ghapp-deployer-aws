@@ -19,7 +19,7 @@ Resources:
     Properties:
       FunctionName: ghrunner-app
       Description: Basic Auth Funtion
-      CodeUri: ./
+      CodeUri: .
       Handler: handler.webhooks
       Runtime: nodejs16.x
       MemorySize: 256
