@@ -2,18 +2,6 @@ AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: Serverless GitHub app
 
-Parameters:
-  githubAppId:
-    Description: The App ID of your GitHub app
-    Type: String
-  githubWebhookSecret:
-    Description: The webhook secret of your GitHub app
-    Type: String
-  githubPrivateKey:
-    Description: The private key of your GitHub app
-    Type: String
-
-
 Globals:
   Function:
     Environment:
