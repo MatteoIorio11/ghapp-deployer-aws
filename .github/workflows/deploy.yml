@@ -23,7 +23,7 @@ jobs:
           aws-region: us-east-1
       - run: sam build webhooks
       - run: >
-         sam deploy sam deploy --stack-name sam-app-test \
+         sam deploy sam deploy --stack-name ${{ secrets.AWS_STACK_NAME }} \
           --resolve-s3 \
           --capabilities CAPABILITY_IAM \
           --parameter-overrides 'githubAppId="${{ secrets.AWS_GHAPP_ID }}" \
