@@ -1,6 +1,6 @@
 # ghapp-deployer-aws
 <h1>
-Deployer of Probot app on AWS Lambda 
+Deployer of Probot app on AWS Lambda using AWS CLI 
 </h1>
 <body>
   <main>
