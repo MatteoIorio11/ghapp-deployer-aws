@@ -12,6 +12,22 @@ Parameters:
   githubPrivateKey:
     Description: The private key of your GitHub app
     Type: String
+  githubOwner:
+    Description: The repository owner
+    Type: String
+  githubRepository:
+    Description: The name of the repository
+    Type: String
+  githubWorkflowName:
+    Description: The workflow name
+    Type: String
+  githubBranch:
+    Description: The branch name
+    Type: String
+  githubJobFilter:
+    Description: The Job Filter
+    Type: String
+  
 
 Resources:
   webhooks:
@@ -38,3 +54,8 @@ Resources:
           APP_ID: !Ref githubAppId
           WEBHOOK_SECRET: !Ref githubWebhookSecret
           PRIVATE_KEY: !Ref githubPrivateKey
+          OWNER: !Ref githubOwner
+          REPO: !Ref githubRepository
+          WORKFLOW_FILE_NAME: !Ref githubWorkflowName
+          BRANCH: !Ref githubBranch
+          JOB_FILTER: !Ref githubJobFilter
