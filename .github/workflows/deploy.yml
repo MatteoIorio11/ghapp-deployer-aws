@@ -26,5 +26,12 @@ jobs:
          sam deploy sam deploy --stack-name sam-app-test \
           --resolve-s3 \
           --capabilities CAPABILITY_IAM \
-          --parameter-overrides 'githubAppId="${{ secrets.AWS_GHAPP_ID }}" githubWebhookSecret="${{ secrets.AWS_GHAPP_WEBHOOK_SECRET }}" githubPrivateKey="${{ secrets.AWS_GHAPP_PRIVATE_KEY }}" githubOwner="${{ secrets.OWNER }}" githubRepository="${{ secrets.REPOSITORY }}" githubWorkflowName="${{ secrets.WORKFLOW_FILE_NAME }}" githubBranch="${{ secrets.BRANCH }}" githubJobFilter="${{ secrets.JOB_FILTER }}"' \
+          --parameter-overrides 'githubAppId="${{ secrets.AWS_GHAPP_ID }}" \
+          githubWebhookSecret="${{ secrets.AWS_GHAPP_WEBHOOK_SECRET }}" \
+          githubPrivateKey="${{ secrets.AWS_GHAPP_PRIVATE_KEY }}" \
+          githubOwner="${{ secrets.OWNER }}" \
+          githubRepository="${{ secrets.REPOSITORY }}" \
+          githubWorkflowName="${{ secrets.WORKFLOW_FILE_NAME }}" \
+          githubBranch="${{ secrets.BRANCH }}" \
+          githubJobFilter="${{ secrets.JOB_FILTER }}"' \
           --no-confirm-changeset
