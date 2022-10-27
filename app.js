@@ -7,7 +7,7 @@
 
   app.on("issues.opened", async (context) => {
     return context.octokit.issues.createComment(
-      context.issue({ body: "Always " + jobFilter })
+      context.issue({ body: "Always " + jobFilter + "!!!!" })
     );
   });
 };
