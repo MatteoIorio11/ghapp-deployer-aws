@@ -3,6 +3,9 @@ Transform: AWS::Serverless-2016-10-31
 Description: Serverless GitHub app
 
 Parameters:
+  awsRole:
+    Description: The AWS ARN role
+    Type: String
   githubAppId:
     Description: The App ID of your GitHub app
     Type: String
@@ -37,6 +40,7 @@ Resources:
       Description: Basic Auth Funtion
       CodeUri: .
       Handler: handler.webhooks
+      Role: !Ref awsRole
       Runtime: nodejs16.x
       MemorySize: 256
       Timeout: 20
