@@ -1,0 +1,65 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Serverless GitHub app
+
+Parameters:
+  awsRole:
+    Description: The AWS ARN role
+    Type: String
+  githubAppId:
+    Description: The App ID of your GitHub app
+    Type: String
+  githubWebhookSecret:
+    Description: The webhook secret of your GitHub app
+    Type: String
+  githubPrivateKey:
+    Description: The private key of your GitHub app
+    Type: String
+  githubOwner:
+    Description: The repository owner
+    Type: String
+  githubRepository:
+    Description: The name of the repository
+    Type: String
+  githubWorkflowName:
+    Description: The workflow name
+    Type: String
+  githubBranch:
+    Description: The branch name
+    Type: String
+  githubJobFilter:
+    Description: The Job Filter
+    Type: String
+  
+
+Resources:
+  webhooks:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: ghrunner-app
+      Description: Basic Auth Funtion
+      CodeUri: .
+      Handler: handler.webhooks
+      Role: !Ref awsRole
+      Runtime: nodejs16.x
+      MemorySize: 256
+      Timeout: 20
+      PackageType: Zip
+      Tags:
+        map-migrated: d-server-01068mdjl5jze3
+      Events:
+        ApiEvent:
+          Type: HttpApi
+          Properties:
+            Path: /ghrunner-app
+            Method: post
+      Environment:
+        Variables:
+          APP_ID: !Ref githubAppId
+          WEBHOOK_SECRET: !Ref githubWebhookSecret
+          PRIVATE_KEY: !Ref githubPrivateKey
+          OWNER: !Ref githubOwner
+          REPO: !Ref githubRepository
+          WORKFLOW_FILE_NAME: !Ref githubWorkflowName
+          BRANCH: !Ref githubBranch
+          JOB_FILTER: !Ref githubJobFilter
