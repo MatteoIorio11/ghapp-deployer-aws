@@ -32,9 +32,6 @@ Parameters:
     Type: String
   
 
-
-
-
 Resources:
   webhooks:
     Type: AWS::Serverless::Function
