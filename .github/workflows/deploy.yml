@@ -38,6 +38,6 @@ jobs:
           githubJobFilter="${{ secrets.JOB_FILTER }}"' \
           --no-confirm-changeset
 
-
+#         '{{resolve:ssm:parameter-name:version}}'
 #         --s3-bucket ${{ secrets.AWS_S3_BUCKET }} \
 #         --tags ${{ secrets.AWS.FUNCTION_TAG}} \
