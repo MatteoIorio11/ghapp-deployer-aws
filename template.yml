@@ -36,13 +36,6 @@ Parameters:
 
 
 Resources:
-  FunctionEnvSecrets:
-    Type: 'AWS::SecretsManager::Secret'
-    Properties:
-      Name: secret_githubappId
-      Description: This is the secret for the githubappId
-      SecretString: '{"APP_ID": !Ref githubAppId,"WEBHOOK_SECRET": !Ref githubWebhookSecret}'
-
   webhooks:
     Type: AWS::Serverless::Function
     Properties:
@@ -65,9 +58,9 @@ Resources:
             Method: post
       Environment:
         Variables:
-          APP_ID: "{{resolve:secretsmanager:FunctionEnvSecrets:SecretString:APP_ID}}"
-          WEBHOOK_SECRET: !Ref githubWebhookSecret
-          PRIVATE_KEY: !Ref githubPrivateKey
+          APP_ID: "{{resolve:secretsmanager:FunctionSecrets:SecretString:APP_ID}}"
+          WEBHOOK_SECRET: "{{resolve:secretsmanager:FunctionSecrets:SecretString:WEBHOOK_SECRET}}"
+          PRIVATE_KEY: "{{resolve:secretsmanager:FunctionSecrets:SecretString:PRIVATE_KEY}}"
           OWNER: !Ref githubOwner
           REPO: !Ref githubRepository
           WORKFLOW_FILE_NAME: !Ref githubWorkflowName

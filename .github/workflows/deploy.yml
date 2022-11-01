@@ -36,3 +36,7 @@ jobs:
           githubBranch="${{ secrets.BRANCH }}" \
           githubJobFilter="${{ secrets.JOB_FILTER }}"' \
           --no-confirm-changeset
+
+
+#         --s3-bucket ${{ secrets.AWS_S3_BUCKET }} \
+#         --tags ${{ secrets.AWS.FUNCTION_TAG}} \
