@@ -55,7 +55,7 @@ Resources:
             Method: post
       Environment:
         Variables:
-          APP_ID: '{{resolve:ssm:APP_ID_SAM}}'
+          APP_ID: '{{resolve:ssm:SecureString:APP_ID_SAM}}'
           WEBHOOK_SECRET: "{{resolve:secretsmanager:FunctionSecrets:SecretString:WEBHOOK_SECRET}}"
           PRIVATE_KEY: "{{resolve:secretsmanager:FunctionSecrets:SecretString:PRIVATE_KEY}}"
           OWNER: !Ref githubOwner
