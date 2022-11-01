@@ -26,6 +26,7 @@ jobs:
          sam deploy sam deploy --stack-name ${{ secrets.AWS_STACK_NAME }} \
          --on-failure DELETE \
          --resolve-s3 \
+         --capabilities CAPABILITY_IAM \
          --no-confirm-changeset \
           --parameter-overrides 'awsRole="${{ secrets.AWS_ARN_ROLE }}" \
           githubAppId="${{ secrets.AWS_GHAPP_ID }}" \
