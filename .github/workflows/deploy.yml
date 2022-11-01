@@ -23,11 +23,9 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - run: sam build webhooks
       - run: >
-         sam deploy --stack-name ${{ secrets.AWS_STACK_NAME }} \
-         --resolve-s3 \
-         --capabilities CAPABILITY_IAM \
-         --on-failure DELETE \
-         --no-confirm-changeset \
+         sam deploy sam deploy --stack-name ${{ secrets.AWS_STACK_NAME }} \
+          --resolve-s3 \
+          --capabilities CAPABILITY_IAM \
           --parameter-overrides 'awsRole="${{ secrets.AWS_ARN_ROLE }}" \
           githubAppId="${{ secrets.AWS_GHAPP_ID }}" \
           githubWebhookSecret="${{ secrets.AWS_GHAPP_WEBHOOK_SECRET }}" \
@@ -36,10 +34,5 @@ jobs:
           githubRepository="${{ secrets.REPOSITORY }}" \
           githubWorkflowName="${{ secrets.WORKFLOW_FILE_NAME }}" \
           githubBranch="${{ secrets.BRANCH }}" \
-          githubJobFilter="${{ secrets.JOB_FILTER }}"' 
-
-
-
-
-#         --s3-bucket ${{ secrets.AWS_S3_BUCKET }} \
-#         --tags ${{ secrets.AWS.FUNCTION_TAG}} \
+          githubJobFilter="${{ secrets.JOB_FILTER }}"' \
+          --no-confirm-changeset
