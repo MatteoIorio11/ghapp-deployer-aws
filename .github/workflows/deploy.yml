@@ -23,7 +23,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - run: sam build webhooks
       - run: >
-         sam deploy sam deploy --stack-name ${{ secrets.AWS_STACK_NAME }} \
+         sam deploy --stack-name ${{ secrets.AWS_STACK_NAME }} \
          --on-failure DELETE \
          --resolve-s3 \
          --capabilities CAPABILITY_IAM \
