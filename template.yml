@@ -55,9 +55,9 @@ Resources:
             Method: post
       Environment:
         Variables:
-          APP_ID: "{{resolve:secretsmanager:ghapp:SecretString:APP_ID}}"
-          WEBHOOK_SECRET: "{{resolve:secretsmanager:ghapp:SecretString:WEBHOOK_SECRET}}"
-          PRIVATE_KEY: "{{resolve:secretsmanager:ghapp:SecretString:PRIVATE_KEY}}"
+          APP_ID: "{{resolve:secretsmanager:dev/mlh-test:SecretString:APP_ID}}"
+          WEBHOOK_SECRET: "{{resolve:secretsmanager:dev/mlh-test:SecretString:WEBHOOK_SECRET}}"
+          PRIVATE_KEY: "{{resolve:secretsmanager:dev/mlh-test:SecretString:PRIVATE_KEY}}"
           OWNER: !Ref githubOwner
           REPO: !Ref githubRepository
           WORKFLOW_FILE_NAME: !Ref githubWorkflowName
