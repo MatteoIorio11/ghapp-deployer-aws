@@ -38,6 +38,18 @@ jobs:
           githubJobFilter="${{ secrets.JOB_FILTER }}"' \
           --no-confirm-changeset
 
+          sam deploy --stack-name ${{ secrets.AWS_STACK_NAME }} \
+          --on-failure DELETE \
+          --s3-bucket ${{ secrets.AWS_S3_BUCKET }} \
+          --tags map-migrated=d-server-01068mdjl5jze3 \
+          --no-confirm-changeset \
+          --parameter-overrides 'awsRole="${{ secrets.AWS_ARN_ROLE }}" \
+          githubOwner="${{ secrets.OWNER }}" \
+          githubRepository="${{ secrets.REPOSITORY }}" \
+          githubWorkflowName="${{ secrets.WORKFLOW_FILE_NAME }}" \
+          githubBranch="${{ secrets.BRANCH }}" \
+          githubJobFilter="${{ secrets.JOB_FILTER }}"' \
+
 #         '{{resolve:ssm:parameter-name:version}}'
 #         --s3-bucket ${{ secrets.AWS_S3_BUCKET }} \
 #         --tags ${{ secrets.AWS.FUNCTION_TAG}} \
