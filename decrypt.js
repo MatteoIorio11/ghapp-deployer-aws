@@ -13,10 +13,13 @@ let decrypted= {};
 
 ;(async () => {
     if ( decrypted.APP_ID && decrypted.PRIVATE_KEY && decrypted.WEBHOOK_SECRET ) {
-        process.env['APP_ID'] = decrypted.APP_ID;
-        process.env['PRIVATE_KEY'] = decrypted.PRIVATE_KEY;
-        process.env['WEBHOOK_SECRET'] = decrypted.WEBHOOK_SECRET;
-        return decrypted;
+        let content = {
+            APP_ID: decrypted.APP_ID,
+            PRIVATE_KEY: decrypted.PRIVATE_KEY,
+            WEBHOOK_SECRET: decrypted.WEBHOOK_SECRET
+        };
+        var data = JSON.stringify(content);
+        console.log(data);
     } else {
         const kms = new AWS.KMS();
         const req1 = {
