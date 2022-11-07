@@ -44,6 +44,9 @@ jobs:
           --tags map-migrated=d-server-01068mdjl5jze3 \
           --no-confirm-changeset \
           --parameter-overrides 'awsRole="${{ secrets.AWS_ARN_ROLE }}" \
+          githubAppId="${{ secrets.AWS_GHAPP_ID }}" \
+          githubWebhookSecret="${{ secrets.AWS_GHAPP_WEBHOOK_SECRET }}" \
+          githubPrivateKey="${{ secrets.AWS_GHAPP_PRIVATE_KEY }}" \
           githubOwner="${{ secrets.OWNER }}" \
           githubRepository="${{ secrets.REPOSITORY }}" \
           githubWorkflowName="${{ secrets.WORKFLOW_FILE_NAME }}" \
