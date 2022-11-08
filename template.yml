@@ -6,15 +6,15 @@ Parameters:
   awsRole:
     Description: The AWS ARN role
     Type: String
-  githubAppId:
-    Description: The App ID of your GitHub app
-    Type: String
-  githubWebhookSecret:
-    Description: The webhook secret of your GitHub app
-    Type: String
-  githubPrivateKey:
-    Description: The private key of your GitHub app
-    Type: String
+  #githubAppId:
+  #  Description: The App ID of your GitHub app
+  #  Type: String
+  #githubWebhookSecret:
+  #  Description: The webhook secret of your GitHub app
+  #  Type: String
+  #githubPrivateKey:
+  #  Description: The private key of your GitHub app
+  #  Type: String
   githubOwner:
     Description: The repository owner
     Type: String
@@ -55,6 +55,9 @@ Resources:
             Method: post
       Environment:
         Variables:
+          APP_ID: "{{resolve:secretsmanager:dev/mlh-test:SecretString:APP_ID}}"
+          WEBHOOK_SECRET: "{{resolve:secretsmanager:dev/mlh-test:SecretString:WEBHOOK_SECRET}}"
+          PRIVATE_KEY: "{{resolve:secretsmanager:dev/mlh-test:SecretString:PRIVATE_KEY}}"
           OWNER: !Ref githubOwner
           REPO: !Ref githubRepository
           WORKFLOW_FILE_NAME: !Ref githubWorkflowName

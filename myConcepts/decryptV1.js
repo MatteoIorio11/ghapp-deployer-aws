@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const kms = new AWS.KMS();
 AWS.config.update({ region: 'us-east-1' });
 
 const functionName = process.env.AWS_LAMBDA_FUNCTION_NAME;
@@ -51,5 +52,6 @@ let decrypted= {};
             console.log('Decrypt error:', err);
             throw err;
         }
+        
     }
 })()
