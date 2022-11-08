@@ -55,9 +55,6 @@ Resources:
             Method: post
       Environment:
         Variables:
-          APP_ID: "{{resolve:secretsmanager:dev/mlh-test:SecretString:APP_ID}}"
-          WEBHOOK_SECRET: "{{resolve:secretsmanager:dev/mlh-test:SecretString:WEBHOOK_SECRET}}"
-          PRIVATE_KEY: "{{resolve:secretsmanager:dev/mlh-test:SecretString:PRIVATE_KEY}}"
           OWNER: !Ref githubOwner
           REPO: !Ref githubRepository
           WORKFLOW_FILE_NAME: !Ref githubWorkflowName
@@ -67,5 +64,9 @@ Resources:
 # !Ref githubAppId
 # !Ref githubWebhookSecret
 # !Ref githubPrivateKey
-
+# Provare ad usare una libreria per i secret dentro il mio handler in modo da poter leggere i secret senza doverli passare dentro il template e dentro la
+# UI
+# APP_ID: "{{resolve:secretsmanager:dev/mlh-test:SecretString:APP_ID}}"
+# WEBHOOK_SECRET: "{{resolve:secretsmanager:dev/mlh-test:SecretString:WEBHOOK_SECRET}}"
+# PRIVATE_KEY: "{{resolve:secretsmanager:dev/mlh-test:SecretString:PRIVATE_KEY}}"
 
