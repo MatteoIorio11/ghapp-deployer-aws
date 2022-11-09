@@ -16,10 +16,13 @@ Deployer of Probot app on AWS Lambda using AWS Sam
         Build the function:
       </p>
       </section>
+      
         '''
           sam build
         '''
+
         Deploy the function:
+        
         '''
           sam deploy --stack-name NAME-OF-THE-STACK \
           --on-failure DELETE \
@@ -33,6 +36,7 @@ Deployer of Probot app on AWS Lambda using AWS Sam
           githubBranch="NAME-OF-THE-BRANCH" \
           githubJobFilter="NAME-OF-THE-FILTER"'
         '''
+
         Delete the stack:
 
         '''
