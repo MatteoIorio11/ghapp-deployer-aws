@@ -64,7 +64,6 @@ module.exports.webhooks = async (event) => {
     process.env['APP_ID'] = decrypted.APP_ID;
     process.env['PRIVATE_KEY'] = "\"".concat(decrypted.PRIVATE_KEY).concat("\"");
     process.env['WEBHOOK_SECRET'] = decrypted.WEBHOOK_SECRET;
-    console.log(decrypted.PRIVATE_KEY);
     //Process the event of our function
     return processEvent(event);
 }
