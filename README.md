@@ -12,11 +12,10 @@ Deployer of Probot app on AWS Lambda using AWS Sam
          automatically decrypt this variables and the create the probot in order to handle the event.
       </p>
       <h2> Deploy locally  </h2>
-      <p>
-        Build the function:
-      </p>
       </section>
-      
+
+        Build the function:
+
         '''
           sam build
         '''
