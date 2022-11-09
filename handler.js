@@ -28,9 +28,7 @@ function processEvent(event){
 
 
 module.exports.webhooks = async (event) => {
-  if ( decrypted.APP_ID && decrypted.PRIVATE_KEY && decrypted.WEBHOOK_SECRET ) {
-
-  } else {
+  if( !decrypted.APP_ID || !decrypted.PRIVATE_KEY || !decrypted.WEBHOOK_SECRET ) {
       const kms = new AWS.KMS();
       const req1 = {
           CiphertextBlob: Buffer.from(encrypted_app_id, 'base64'),
@@ -53,14 +51,16 @@ module.exports.webhooks = async (event) => {
           decrypted.WEBHOOK_SECRET = data_w.Plaintext.toString('ascii');
       } catch (err) {
           console.log('Decrypt error:', err);
-          throw err;
+          return {
+            statusCode: 500,
+            body: `{err : ${err} }`,
+          };
       }
   }
   process.env['APP_ID'] = decrypted.APP_ID;
   process.env['PRIVATE_KEY'] = "\"".concat(decrypted.PRIVATE_KEY).concat("\"");
   process.env['WEBHOOK_SECRET'] = decrypted.WEBHOOK_SECRET;
   console.log(decrypted.PRIVATE_KEY);
+  /* TESTARE CON <return createProbot(app, probot)> */
   return processEvent(event);
 }
-
-
