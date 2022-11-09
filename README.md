@@ -8,8 +8,6 @@ Deployer of Probot app on AWS Lambda using AWS Sam
       <h2> How does it work? </h2>
       <p>
          This repository uses a template.yml for the creation of the Lambda. Every env variables is set during the deploy of the Lambda. This Function has already configured the API-Trigger, so in order to attach the Function to your app just copy the API-Endpoint inside your webhook URL. 
-
-
          It requires APP_ID, PRIVATE_KEY and WEBHOOK_SECRET crypted inside the environment, crypted with KMS. This function
          automatically decrypt this variables and the create the probot in order to handle the event.
       </p>
