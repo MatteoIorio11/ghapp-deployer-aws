@@ -12,6 +12,10 @@ This repository uses a template.yml for the creation of the Lambda. Every env va
 It requires APP_ID, PRIVATE_KEY and WEBHOOK_SECRET crypted inside the environment, crypted with KMS. This function
 automatically decrypt this variables and the create the probot in order to handle the event.
 
+----------
+
+<h2> Build and Deploy the function </h2>
+
 Build the function:
 '''
   sam build
