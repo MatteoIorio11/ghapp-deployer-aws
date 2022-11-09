@@ -18,13 +18,13 @@ automatically decrypt this variables and the create the probot in order to handl
 
 Build the function:
 
-'''
+```
   sam build
-'''
+```
 
 Deploy the function:
 
-'''
+```
   sam deploy --stack-name NAME-OF-THE-STACK \
   --on-failure DELETE \
   --s3-bucket YOUR-S3-BUCKET \
@@ -36,14 +36,16 @@ Deploy the function:
   githubWorkflowName="NAME-OF-THE-WORKFLOW" \
   githubBranch="NAME-OF-THE-BRANCH" \
   githubJobFilter="NAME-OF-THE-FILTER"'
-'''
+
+```
 
 Delete the stack:
 
-'''
+```
   sam delete --stack-name NAME-OF-THE-STACK --no-prompts --region REGION-OF-THE-FUNCTION
-'''
+```
 -------
+
 <h2> Update the code of your function </h2>
 
 Every time a pushed is done, the action automatically runs the "deploy.yml". In this way your Function will always be updated. 
