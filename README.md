@@ -2,7 +2,9 @@
 <h1>
 Deployer of Probot app on AWS Lambda using AWS Sam
 </h1>
+
 -------------
+
 <h2> How does it work? </h2>
 
 
