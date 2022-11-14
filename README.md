@@ -1,6 +1,6 @@
 # ghapp-deployer-aws
 <h1>
-Deployer of Probot app on AWS Lambda using AWS Sam
+Deployer of Probot app on AWS Lambda using AWS Sam. Without using a sub process, in order to be more efficient
 </h1>
 
 -------------
