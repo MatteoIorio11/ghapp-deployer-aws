@@ -8,15 +8,6 @@ const lambda_function = require('./function');
 const AWS = require('aws-sdk');
 AWS.config.update({ region: 'us-east-1' });
 
-const functionName = process.env.AWS_LAMBDA_FUNCTION_NAME;
-
-//Take all the crypted env variables
-const encrypted_app_id = process.env['APP_ID'];
-const encrypted_webhook_secret = process.env['WEBHOOK_SECRET'];
-const encrypted_private_key = process.env['PRIVATE_KEY'];
-
-let decrypted= {};
-
 //Create the probot and put inside it the app. The app is the "filter" on what we have to do when the function is triggered
 function processEvent(event){
     var probot = createProbot();
@@ -24,46 +15,60 @@ function processEvent(event){
     return lambda_function(probot, event);
 }
 
+function getSecret(secretName) {
+    // Load the AWS SDK
+    var AWS = require('aws-sdk');
+  
+    // Create a Secrets Manager client
+    var client = new AWS.SecretsManager();
+  
+    // In this sample we only handle the specific exceptions for the 'GetSecretValue' API.
+    // See https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
+    // We rethrow the exception by default.
+  
+    client.getSecretValue({SecretId: secretName}, function(err, data) {
+        if (err) {
+            if (err.code === 'DecryptionFailureException')
+                // Secrets Manager can't decrypt the protected secret text using the provided KMS key.
+                // Deal with the exception here, and/or rethrow at your discretion.
+                throw err;
+            else if (err.code === 'InternalServiceErrorException')
+                // An error occurred on the server side.
+                // Deal with the exception here, and/or rethrow at your discretion.
+                throw err;
+            else if (err.code === 'InvalidParameterException')
+                // You provided an invalid value for a parameter.
+                // Deal with the exception here, and/or rethrow at your discretion.
+                throw err;
+            else if (err.code === 'InvalidRequestException')
+                // You provided a parameter value that is not valid for the current state of the resource.
+                // Deal with the exception here, and/or rethrow at your discretion.
+                throw err;
+            else if (err.code === 'ResourceNotFoundException')
+                // We can't find the resource that you asked for.
+                // Deal with the exception here, and/or rethrow at your discretion.
+                throw err;
+        }
+        else {
+            // Decrypts secret using the associated KMS CMK.
+            // Depending on whether the secret is a string or binary, one of these fields will be populated.
+            if ('SecretString' in data) {
+                return data.SecretString;
+            } else {
+                let buff = new Buffer(data.SecretBinary, 'base64');
+                return buff.toString('ascii');
+            }
+      }
+    });
+  }
+  
+
 //Handler of the function 
 module.exports.webhooks = async (event) => {
-    //First of all I have to check if the env variables are already decrypted, used for differents layers
-    if( !decrypted.APP_ID || !decrypted.PRIVATE_KEY || !decrypted.WEBHOOK_SECRET ) {
-        const kms = new AWS.KMS();
-        //req1 : APP_ID decryption 
-        const req1 = {
-            CiphertextBlob: Buffer.from(encrypted_app_id, 'base64'),
-            EncryptionContext: { LambdaFunctionName: functionName },
-        };
-        //req2 : PRIVATE_KEY decryption 
-        const req2 = {
-            CiphertextBlob: Buffer.from(encrypted_private_key, 'base64'),
-            EncryptionContext: { LambdaFunctionName: functionName },
-        };
-        //req3 : WEBHOOK_SECRET decryption 
-        const req3 = {
-            CiphertextBlob: Buffer.from(encrypted_webhook_secret, 'base64'),
-            EncryptionContext: { LambdaFunctionName: functionName },
-        };
-        try {
-            //DECRYPT the variables inside the env 
-            var data_a = await kms.decrypt(req1).promise();
-            var data_p = await kms.decrypt(req2).promise();
-            var data_w = await kms.decrypt(req3).promise();
-            decrypted.APP_ID= data_a.Plaintext.toString('ascii');
-            decrypted.PRIVATE_KEY = data_p.Plaintext.toString('ascii');
-            decrypted.WEBHOOK_SECRET = data_w.Plaintext.toString('ascii');
-        } catch (err) {
-            console.log('Decrypt error:', err);
-            return {
-                statusCode: 500,
-                body: `{err : ${err} }`,
-            };
-        }
-    }
+    var client = new AWS.SecretsManager();
+    var data = await client.getSecretValue({SecretId: 'APP_ID'}).promise();
+    console.log(data);
     //Assign the decrypted values inside the env 
-    process.env['APP_ID'] = decrypted.APP_ID;
-    process.env['PRIVATE_KEY'] = "\"".concat(decrypted.PRIVATE_KEY).concat("\"");
-    process.env['WEBHOOK_SECRET'] = decrypted.WEBHOOK_SECRET;
     //Process the event of our function
-    return processEvent(event);
+    //return processEvent(event);
 }
