@@ -23,9 +23,9 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - run: sam build
       - run: >
-          sam deploy --stack-name ghapp-stack \
+          sam deploy --stack-name ${{ secrets.AWS_STACK_NAME }} \
           --on-failure DELETE \
-          --s3-bucket parquetsharp-dev-sam-templates \
+          --s3-bucket ${{ secrets.AWS_S3_BUCKET }} \
           --tags map-migrated=d-server-01068mdjl5jze3 \
           --no-confirm-changeset \
           --parameter-overrides 'awsRole="${{ secrets.AWS_ARN_ROLE }}" \
