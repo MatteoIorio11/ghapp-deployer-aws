@@ -10,7 +10,7 @@ AWS.config.update({ region: 'us-east-1' });
 
 //Create the probot and put inside it the app. The app is the "filter" on what we have to do when the function is triggered
 function processEvent(event){
-    var probot = createProbot();
+    let probot = createProbot();
     probot.load(appFn);
     return lambda_function(probot, event);
 } 
