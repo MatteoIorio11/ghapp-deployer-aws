@@ -23,8 +23,13 @@ module.exports.webhooks = async (event) => {
     //Assign the value of the secrets to the env in order to create the Probot app
     process.env['APP_ID'] = data["APP_ID"];
     // TIP : the PRIVATE_KEY must be : ("---BEGIN-RSA--- ....") and not (---BEGIN-RSA--- ....) the ' " " ' are a MUST. So if you
-    // add the Secret as "---BEGIN...." you have to use ; process.env['PRIVATE_KEY'] = data["PRIVATE_KEY"]; 
-    process.env['PRIVATE_KEY'] = "\"".concat(data["PRIVATE_KEY"]).concat("\"");
+    // add the Secret as "---BEGIN...." 
+    let prv_key = data["PRIVATE_KEY"];
+    if(prv_key.indexOf('"') < 0){
+        process.env['PRIVATE_KEY'] = "\"".concat(prv_key).concat("\"");
+    }else{
+        process.env['PRIVATE_KEY'] = prv_key;
+    }   
     process.env['WEBHOOK_SECRET'] = data["WEBHOOK_SECRET"];
     return processEvent(event);
 }
