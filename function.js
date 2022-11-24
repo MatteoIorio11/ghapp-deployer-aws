@@ -2,7 +2,7 @@ module.exports = lambdaFunction;
 
 const lowercaseKeys = require("lowercase-keys");
 
-async function lambdaFunction(probot, event, context) {
+async function lambdaFunction(probot, event) {
   try {
     // lowercase all headers to respect headers insensitivity (RFC 7230 $3.2 'Header Fields', see issue #62)
     const headersLowerCase = lowercaseKeys(event.headers);
@@ -25,7 +25,7 @@ async function lambdaFunction(probot, event, context) {
   } catch (error) {
     return {
       statusCode: error.status || 500,
-      error: error,
+      error: '{"error" : "Somethig went wrong. You should check the probot\'s informations"}',
     };
   }
 }

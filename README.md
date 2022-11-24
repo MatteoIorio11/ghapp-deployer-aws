@@ -23,6 +23,11 @@ Build the function:
   sam build
 ```
 
+<!--
+  AGGIUNGI A PREREQUISITO
+  Cambiare ruolo
+-->
+
 Deploy the function:
 
 ```
