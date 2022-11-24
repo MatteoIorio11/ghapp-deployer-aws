@@ -29,7 +29,8 @@ jobs:
           --tags map-migrated=d-server-01068mdjl5jze3 \
           --no-confirm-changeset \
           --parameter-overrides 'awsRole="${{ secrets.AWS_ARN_ROLE }}" \
-          functionName="${{ secrets.AWS_FUNCTION_NAME }}" \
+          functionName="${{ secrets.LAMBDA_FUNCTION }}" \
+          secretId="${{ secrets.SECRET_ID }}"
           githubOwner="${{ secrets.OWNER }}" \
           githubRepository="${{ secrets.REPOSITORY }}" \
           githubWorkflowName="${{ secrets.WORKFLOW_FILE_NAME }}" \

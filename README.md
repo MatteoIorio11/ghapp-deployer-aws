@@ -22,7 +22,7 @@ Build the function:
 ```
   sam build
 ```
-
+[Set up the env](./setup.md)
 <!--
   AGGIUNGI A PREREQUISITO
   Cambiare ruolo
@@ -37,6 +37,8 @@ Deploy the function:
   #?? OPTIONAL --tags map-migrated=d-server-01068mdjl5jze3 ?? \
   --no-confirm-changeset \
   --parameter-overrides 'awsRole="ROLE-FOR-THE-FUNCTION" \
+  functionName="YOUR-LAMBDA-FUNCTION-NAME" \
+  secretId="YOUR-PREDEFINED-AWS-SECRET-ID"\
   githubOwner="OWNER-OF-THE-REPO" \
   githubRepository="NAME-OF-THE-REPO" \
   githubWorkflowName="NAME-OF-THE-WORKFLOW" \

@@ -6,6 +6,9 @@ Parameters:
   awsRole:
     Description: The AWS ARN role
     Type: String
+  secretId:
+    Description: The AWS Secret ID
+    Type: String
   functionName:
     Description: The AWS Lambda's Function name
     Type: String
@@ -54,3 +57,4 @@ Resources:
           WORKFLOW_FILE_NAME: !Ref githubWorkflowName
           BRANCH: !Ref githubBranch
           JOB_FILTER: !Ref githubJobFilter
+          SECRET_ID : !Ref secretId
